@@ -54,7 +54,7 @@ FLOW.child.build = class{
         // })
         return new THREE.LineBasicMaterial({
             color: this.param.color,
-            opacity: 1.0,
+            opacity: Math.random() * 0.5,
             transparent: true
         })
     }
