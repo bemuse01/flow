@@ -48,19 +48,43 @@ FLOW.child.method = {
 
     //     return {start, end}
     // }
-    createPoints(param, width, height, index){
+    // createPoints(param, width, height, index){
+    //     const position = []
+
+    //     const w = width * param.rd
+    //     const h = width * param.rd
+    //     const d = Math.sqrt(w ** 2 + h ** 2)
+    //     const gap = d / param.seg - 1
+
+    //     for(let i = 0; i < param.seg; i++){
+    //         const x = gap * i - d / 2
+    //         const y = SIMPLEX.noise2D(x / 1000, index / 100) * 100
+
+    //         position.push(x, y, 0)
+    //     }
+
+    //     return new Float32Array(position)
+    // }
+    createPoints(param, index){
         const position = []
 
-        const w = width * param.rd
-        const h = width * param.rd
-        const d = Math.sqrt(w ** 2 + h ** 2)
-        const gap = d / param.seg - 1
+        const degree = 360 / param.seg
 
         for(let i = 0; i < param.seg; i++){
-            const x = gap * i - d / 2
-            const y = SIMPLEX.noise2D(x / 1000, index / 100) * 100
+            const deg = degree * i
+            // const rx = Math.cos(deg * RADIAN) * param.radius
+            // const ry = Math.sin(deg * RADIAN) * param.radius
 
+            // const r = SIMPLEX.noise3D(rx / 500, ry / 500, index / 100)
+            // const n = METHOD.normalize(r, 0.75, 1, -1, 1) * param.radius
+            // const x = Math.cos(deg * RADIAN) * n
+            // const y = Math.sin(deg * RADIAN) * n
+            const x = Math.cos(deg * RADIAN) * param.radius
+            const y = Math.sin(deg * RADIAN) * param.radius
+            
             position.push(x, y, 0)
+            
+            if(i === param.seg - 1) position.push(position[0], position[1], 0)
         }
 
         return new Float32Array(position)

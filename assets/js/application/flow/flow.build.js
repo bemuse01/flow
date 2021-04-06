@@ -48,7 +48,7 @@ FLOW.build = class{
         this.#createChild()
     }
     #createChild(){
-        this.child = new FLOW.child.build(this.group.child, this.width, this.height)
+        this.child = new FLOW.child.build(this.group.child)
     }
 
 
@@ -71,6 +71,7 @@ FLOW.build = class{
         app.renderer.render(this.scene, this.camera)
     }
     #animateObject(){
+        this.child.animate()
     }
 
 
