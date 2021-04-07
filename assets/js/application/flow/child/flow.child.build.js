@@ -61,12 +61,7 @@ FLOW.child.build = class{
 
 
     // resize
-    resize(width, height){
-        this.width = width
-        this.height = height
-
-        this.mesh.geometry.dispose()
-        this.mesh.geometry = this.#createGeometry()
+    resize(){
     }
 
 
