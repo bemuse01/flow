@@ -82,7 +82,7 @@ FLOW.child.build = class{
                 const ox = temp[i * 3]
                 const oy = temp[i * 3 + 1]
 
-                const r = SIMPLEX.noise4D(ox / 500, oy / 500, index / 35, time / 1000)
+                const r = SIMPLEX.noise4D(ox / 200, oy / 200, index / 35, time / 1000)
                 const n = METHOD.normalize(r, 0.9, 1, -1, 1) * this.param.radius
 
                 const x = Math.cos(deg * RADIAN) * n
